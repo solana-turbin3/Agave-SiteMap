@@ -1,11 +1,9 @@
 import * as React from "react"
+import Image from "next/image"
 
-import { Button } from "@/components/ui/button"
 import {
   Card,
-  CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -28,7 +26,7 @@ export function TwitterCard({ name, handle, avatarUrl, profileUrl }: TwitterCard
         className="block"
       >
         <CardHeader className="flex flex-row items-center gap-4 space-y-0">
-          <img 
+          <Image 
             src={avatarUrl} 
             alt={`${name}'s avatar`}
             className="w-12 h-12 rounded-full"

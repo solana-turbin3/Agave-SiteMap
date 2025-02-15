@@ -1,11 +1,9 @@
 import * as React from "react"
+import Image from "next/image"
 
-import { Button } from "@/components/ui/button"
 import {
   Card,
-  CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -28,7 +26,7 @@ export function VideoCard({ title, description, thumbnailUrl, videoUrl }: VideoC
         className="block"
       >
         <div className="relative">
-          <img 
+          <Image 
             src={thumbnailUrl} 
             alt={`${title} thumbnail`}
             className="w-full h-[200px] object-cover rounded-t-lg"
