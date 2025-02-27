@@ -30,6 +30,8 @@ export function TwitterCard({ name, handle, avatarUrl, profileUrl }: TwitterCard
             src={avatarUrl} 
             alt={`${name}'s avatar`}
             className="w-12 h-12 rounded-full"
+            width={48}
+            height={48}
           />
           <div className="flex flex-col">
             <CardTitle className="text-base">{name}</CardTitle>

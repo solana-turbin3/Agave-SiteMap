@@ -1,10 +1,9 @@
-import Image from "next/image"
 import { TwitterCard } from "@/app/ui/twittercard"
 import { VideoCard } from "@/app/ui/videocard"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { FileDocumentation } from "@/app/ui/file-documentation"
-
+import { BlockBuildingMap } from "@/app/ui/block-building-map"
 export default function FetchStagePage() {
     const files = [
         {
@@ -203,7 +202,7 @@ export default function FetchStagePage() {
                     </div>
 
                     <div className="flex justify-center">
-                        <Image src="/BlockBuilding.svg" alt="Fetch Stage" width={1000} height={1000} />
+                        <BlockBuildingMap />
                     </div>
 
                
