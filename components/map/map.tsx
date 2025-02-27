@@ -1,27 +1,31 @@
 "use client";
 
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   ReactFlow,
   Background,
+  Node,
+  Edge,
   useNodesState,
   useEdgesState,
   addEdge,
   BackgroundVariant,
-  Connection
+  Connection,
 } from "@xyflow/react";
 
 import "@xyflow/react/dist/style.css";
 
-const initialNodes = [
-  { id: "1", position: { x: 0, y: 0 }, data: { label: "1" } },
-  { id: "2", position: { x: 0, y: 100 }, data: { label: "2" } },
-];
-const initialEdges = [{ id: "e1-2", source: "1", target: "2" }];
+import mapDataJson from "./mapData.json";
+
+interface MapData {
+  nodes: Node[];
+  edges: Edge[];
+}
 
 export default function Map() {
-  const [nodes, _setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const mapData = mapDataJson as MapData;
+  const [nodes, setNodes, onNodesChange] = useNodesState(mapData.nodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(mapData.edges);
 
   const onConnect = useCallback(
     (params: Connection) => setEdges((eds) => addEdge(params, eds)),
