@@ -1,4 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# What if you could understand the Agave code 10x faster—unlocking rapid mastery of Solana’s architecture and code in record time?
+
+We all know what it’s like to open a repository for the first time: hundreds of folders listed in alphabetical order. 
+
+You just want to dive into the part you’re interested in, but first, you have to find it.
+
+Imagine a tool that eliminates the need to sift through endless code. 
+
+With the Interactive AVAGA Map, you can:
+
+Understand every section of the Agave Client in the context of Solana’s architecture. With Modular Insights: built on top of solanahowitworks 
+
+Clone the exact section you need directly into your IDE—no more wasted time.
+With Instant Integration:
+
+See the interdependencies and structure of the Agave Client in a way that turns complexity into clarity. With Dynamic Code Visualization:
+
+Gain insights from industry leaders through deep-dive lectures tailored to each section.Connect with top voices and experts ready to help you navigate your journey.
+
+Transform your development experience on the Agave client 
+Start coding smarter, faster, and with the confidence that you truly understand the inner workings of Solana.
+
+
 
 ## Getting Started
 

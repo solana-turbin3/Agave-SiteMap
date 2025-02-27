@@ -30,6 +30,8 @@ export function VideoCard({ title, description, thumbnailUrl, videoUrl }: VideoC
             src={thumbnailUrl} 
             alt={`${title} thumbnail`}
             className="w-full h-[200px] object-cover rounded-t-lg"
+            width={350}
+            height={200}
           />
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="w-16 h-16 bg-black bg-opacity-50 rounded-full flex items-center justify-center">
