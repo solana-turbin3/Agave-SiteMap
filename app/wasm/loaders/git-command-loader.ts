@@ -1,4 +1,4 @@
-import init, { create_git_command, InitOutput } from '../scripts/git_commands_wasm';
+import init, { create_git_command, InitOutput, update_cargo_toml } from '../scripts/git_commands_wasm';
 
 class GitCommandsLoader {
   private static instance: InitOutput | null = null;
@@ -19,6 +19,14 @@ class GitCommandsLoader {
       throw new Error('WASM module not initialized. Call init() first.');
     }
     return create_git_command(packagesJson, packageName);
+  }
+
+  static update_cargo_toml(gitCommand: string, cargoToml: string): string {
+    if (!this.instance) {
+      throw new Error('WASM module not initialized. Call init() first.');
+    }
+
+    return update_cargo_toml(cargoToml, gitCommand);
   }
 }
 

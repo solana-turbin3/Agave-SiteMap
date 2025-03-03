@@ -2,6 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   webpack(config, { isServer, dev, webpack }) {
+    config.module.rules.push({
+      test: /\.toml$/,
+      type: 'asset/source',
+      resourceQuery: /raw/
+    });
+
     config.output.webassemblyModuleFilename =
     isServer && !dev
         ? '../app/wasm/scripts/[modulehash].wasm'

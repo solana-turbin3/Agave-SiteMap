@@ -32,6 +32,7 @@ export default function CommandModal({ isOpen, onClose, steps }: CommandModalPro
   const handleNext = async () => {
     if (isLastStep) {
       setCurrentStepIndex(0);
+      setCurrentCommand(steps[0].command as string);
       onClose();
     } else {
       const nextStep = steps[currentStepIndex + 1];
@@ -65,7 +66,7 @@ export default function CommandModal({ isOpen, onClose, steps }: CommandModalPro
                 </p>
                 <div className="mt-4">
                   <div className="relative">
-                    <pre className="mt-2 rounded-lg bg-gray-900 p-4 text-sm text-gray-100 overflow-x-auto">
+                    <pre className="mt-2 rounded-lg bg-gray-900 p-4 text-sm text-gray-100 overflow-x-auto max-h-[400px] overflow-y-auto text-left">
                       <code>{currentCommand}</code>
                     </pre>
                     <button
