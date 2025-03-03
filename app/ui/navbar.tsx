@@ -2,7 +2,8 @@
 
 import * as React from "react"
 import { usePathname } from "next/navigation"
-
+import { HomeIcon } from "lucide-react"
+import Link from "next/link"
 import { cn } from "@/lib/utils"
 // import { Icons } from "@/components/icons"
 import {
@@ -164,6 +165,23 @@ export function Navbar() {
     <div className="flex justify-center p-5">
       <NavigationMenu>
         <NavigationMenuList>
+          {/* Home button */}
+          <NavigationMenuItem>
+            <NavigationMenuLink asChild>
+              <Link
+                href="/"
+                className={cn(
+                  "flex h-10 w-10 items-center justify-center rounded-md bg-background p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
+                  pathname === "/" && "bg-accent text-accent-foreground"
+                )}
+                title="Home"
+              >
+                <HomeIcon size={24} />
+                <span className="sr-only">Home</span>
+              </Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+          
           {components.map((component) => {
             // Check if current path matches this section or any of its subsections
             const isActive = pathname === component.href || pathname.startsWith(component.href + '/')

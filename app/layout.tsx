@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "interactive AVGAVA map",
-  description: "interactive AVGAVA map",
+  title: "interactive AVGAVE map",
+  description: "interactive AVGAVE map",
 };
 
 export default function RootLayout({
