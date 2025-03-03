@@ -212,7 +212,7 @@ export default function FetchStagePage() {
                 <div className="grid grid-cols-12 gap-4">
                     <div className="col-span-9">
                         <div>
-                            <h2 className="text-2xl font-bold mb-4">Relevant AGAVA File Paths</h2>
+                            <h2 className="text-2xl font-bold mb-4">Relevant Agave File Paths</h2>
                             <ul className="list-disc pl-4">
                                 {files.map((file) => (
                                     <li key={file.filePath}>
@@ -246,7 +246,7 @@ export default function FetchStagePage() {
                             />
                             <TwitterCard
                                 name="toly"
-                                handle="@aeyakovenko"
+                                handle="aeyakovenko"
                                 avatarUrl="/twitter.jpg"
                                 profileUrl="https://twitter.com/johndoe"
                             />

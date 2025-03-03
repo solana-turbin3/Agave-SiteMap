@@ -6,7 +6,7 @@ You just want to dive into the part you’re interested in, but first, you have 
 
 Imagine a tool that eliminates the need to sift through endless code. 
 
-With the Interactive AVAGA Map, you can:
+#With the Interactive AVAGA Map, you can:
 
 Understand every section of the Agave Client in the context of Solana’s architecture. With Modular Insights: built on top of solanahowitworks 
 
