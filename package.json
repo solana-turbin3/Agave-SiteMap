@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.0",
+    "@heroicons/react": "^2.2.0",
     "@radix-ui/react-navigation-menu": "^1.2.5",
     "@radix-ui/react-slot": "^1.1.2",
+    "@wasmer/wasi": "^1.2.2",
     "@xyflow/react": "^12.4.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

@@ -1,0 +1,15 @@
+{
+  "name": "git-commands-wasm",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "git_commands_wasm_bg.wasm",
+    "git_commands_wasm.js",
+    "git_commands_wasm.d.ts"
+  ],
+  "main": "git_commands_wasm.js",
+  "types": "git_commands_wasm.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

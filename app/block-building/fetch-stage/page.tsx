@@ -1,9 +1,9 @@
 import { TwitterCard } from "@/app/ui/twittercard"
 import { VideoCard } from "@/app/ui/videocard"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
 import { FileDocumentation } from "@/app/ui/file-documentation"
 import { BlockBuildingMap } from "@/app/ui/block-building-map"
+import Checkout from "@/components/checkout"
+
 export default function FetchStagePage() {
     const files = [
         {
@@ -194,11 +194,7 @@ export default function FetchStagePage() {
                         <p className="text-lg mb-4 text-white">
                         The Fetch Stage in the TPU involves fetching transactions and notifying relevant components. 
                         </p>
-                        <Button className="bg-primary-color hover:bg-primary-color/80 w-3/4">
-                        <Link href="/block-building/fetch-stage" className="w-full">
-                            Clone Fetch Stage to your repo
-                        </Link>
-                    </Button>
+                        <Checkout />
                     </div>
 
                     <div className="flex justify-center">
