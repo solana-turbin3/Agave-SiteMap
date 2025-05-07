@@ -4,14 +4,28 @@ import { useState, useEffect } from "react";
 
 import GitCommandsLoader from "@/app/wasm/loaders/git-command-loader";
 import inputData from "@/app/data/packages_with_path.json";
-import { cargoToml } from "@/app/data/cargo-toml";
 import { Button } from "@/components/ui/button";
-import CommandModal, { Step } from "./command-modal";
+import CommandModal from "./command-modal";
 
-const Checkout = () => {
+interface Step {
+  title: string;
+  description: string;
+  command: string;
+  isAsync?: boolean;
+}
+
+interface CheckoutProps {
+  steps: Step[];
+  title?: string;
+}
+
+const Checkout = ({
+  steps,
+  title = "Clone Stage to your repo",
+}: CheckoutProps) => {
   const [isWasmLoaded, setIsWasmLoaded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [gitCommand, setGitCommand] = useState<string>("");
+  const [resolvedSteps, setResolvedSteps] = useState<Step[]>([]);
 
   useEffect(() => {
     GitCommandsLoader.init()
@@ -19,61 +33,42 @@ const Checkout = () => {
       .catch((error) => console.error("Error loading WASM:", error));
   }, []);
 
-  const steps: Step[] = [
-    {
-      title: "Clone Empty Repository",
-      description: "First, clone the empty Agave repository",
-      command:
-        "git clone --filter=blob:none --sparse https://github.com/anza-xyz/agave.git agave-fetch-stage && cd agave-fetch-stage",
-    },
-    {
-      title: "Checkout Necessary Files",
-      description:
-        "Next, checkout the required files from the Solana repository",
-      command: async () => {
-        const command = await GitCommandsLoader.createGitCommand(
-          JSON.stringify(inputData),
-          "solana-core,solana-streamer,solana-quic-client"
-        ); // TODO: these are the fetch stage packages - make this dynamic
-        setGitCommand(command);
-        return command;
-      },
-      isAsync: true,
-    },
-    {
-      title: "Replace the Cargo.toml file",
-      description:
-        "Copy the following code and replace the Cargo.toml in your root directory",
-      command: cargoToml, // TODO: only for fetch stage - make this dynamic
-      // async () => {
-      //   const result = await GitCommandsLoader.update_cargo_toml(gitCommand, cargoToml);
-      //   return result;
-      // },
-      // isAsync: true
-    },
-    {
-      title: "To compile it run:",
-      description:
-        "Copy the following code and replace the Cargo.toml in your root directory",
-      command:
-        "cargo build --package solana-streamer --package solana-core --package solana-quic-client", // TODO: these are the fetch stage packages - make this dynamic
-    },
-  ];
+  useEffect(() => {
+    const resolveAsyncSteps = async () => {
+      const resolved = await Promise.all(
+        steps.map(async (step) => {
+          if (step.isAsync && step.command === "__dynamic_git_command__") {
+            const gitCommand = GitCommandsLoader.createGitCommand(
+              JSON.stringify(inputData),
+              "solana-core,solana-streamer,solana-quic-client"
+            );
+            return { ...step, command: gitCommand };
+          }
+          return step;
+        })
+      );
+      setResolvedSteps(resolved);
+    };
+
+    if (isWasmLoaded) {
+      resolveAsyncSteps();
+    }
+  }, [isWasmLoaded, steps]);
 
   return (
     <div>
-      {isWasmLoaded && (
+      {isWasmLoaded && resolvedSteps.length > 0 && (
         <>
           <Button
-            className="w-3/4 w-full bg-primary-color hover:bg-primary-color/80"
+            className="w-full bg-primary-color hover:bg-primary-color/80"
             onClick={() => setIsModalOpen(true)}
           >
-            Clone Fetch Stage to your repo
+            {title}
           </Button>
           <CommandModal
             isOpen={isModalOpen}
             onClose={() => setIsModalOpen(false)}
-            steps={steps}
+            steps={resolvedSteps}
           />
         </>
       )}

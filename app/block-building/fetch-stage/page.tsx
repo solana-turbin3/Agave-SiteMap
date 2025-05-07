@@ -1,4 +1,5 @@
 import { BlockBuildingMap } from "@/app/block-building/_components/block-building-map";
+import { cargoToml } from "@/app/data/cargo-toml";
 import { fetchStageFiles } from "@/lib/constants";
 import { constructMetaData } from "@/lib/metadata";
 import { TwitterCard } from "@/components/ui/twittercard";
@@ -11,6 +12,41 @@ export const metadata = constructMetaData({
   description: "This is Fetch Stage page",
 });
 
+interface Step {
+  title: string;
+  description: string;
+  command: string;
+  isAsync?: boolean;
+}
+
+const fetchStageSteps: Step[] = [
+  {
+    title: "Clone Empty Repository",
+    description: "First, clone the empty Agave repository",
+    command:
+      "git clone --filter=blob:none --sparse https://github.com/anza-xyz/agave.git agave-fetch-stage && cd agave-fetch-stage",
+  },
+  {
+    title: "Checkout Necessary Files",
+    description: "Next, checkout the required files from the Solana repository",
+    command: "__dynamic_git_command__",
+    isAsync: true,
+  },
+  {
+    title: "Replace the Cargo.toml file",
+    description:
+      "Copy the following code and replace the Cargo.toml in your root directory",
+    command: cargoToml,
+  },
+  {
+    title: "To compile it run:",
+    description:
+      "Run the following command to compile only the fetch stage related packages",
+    command:
+      "cargo build --package solana-streamer --package solana-core --package solana-quic-client",
+  },
+];
+
 export default function FetchStagePage() {
   return (
     <div>
@@ -22,7 +58,10 @@ export default function FetchStagePage() {
               The Fetch Stage in the TPU involves fetching transactions and
               notifying relevant components.
             </p>
-            <Checkout />
+            <Checkout
+              steps={fetchStageSteps}
+              title="Clone Fetch Stage to your repo"
+            />
           </div>
 
           <div className="flex justify-center">
