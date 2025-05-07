@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+
+import { Navbar } from "@/components/ui/navbar";
+import Footer from "@/components/ui/footer";
 import "./globals.css";
-import { Navbar } from "./ui/navbar";
-import Footer from "./ui/footer";
+import { constructMetaData } from "@/lib/metadata";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,10 +16,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "interactive AVGAVE map",
-  description: "interactive AVGAVE map",
-};
+export const metadata = constructMetaData();
 
 export default function RootLayout({
   children,
@@ -33,7 +32,6 @@ export default function RootLayout({
         {children}
         <Footer />
       </body>
-  
     </html>
   );
 }

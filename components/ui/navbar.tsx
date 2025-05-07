@@ -1,11 +1,12 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { usePathname } from "next/navigation"
-import { HomeIcon } from "lucide-react"
-import Link from "next/link"
-import { cn } from "@/lib/utils"
-// import { Icons } from "@/components/icons"
+import * as React from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+
+import { HomeIcon } from "lucide-react";
+
+import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,7 +14,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
+} from "@/components/ui/navigation-menu";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -34,7 +35,8 @@ const components: { title: string; href: string; description: string }[] = [
   {
     title: "Turbine",
     href: "/turbine",
-    description: "High-performance processing engine for blockchain operations.",
+    description:
+      "High-performance processing engine for blockchain operations.",
   },
   {
     title: "Block Verification",
@@ -46,7 +48,7 @@ const components: { title: string; href: string; description: string }[] = [
     href: "/consensus",
     description: "Blockchain consensus mechanism and protocol implementation.",
   },
-]
+];
 
 const userItems = [
   {
@@ -59,7 +61,7 @@ const userItems = [
     href: "/users/dapp",
     description: "Decentralized application interface and controls.",
   },
-]
+];
 
 const gulfStreamItems = [
   {
@@ -72,7 +74,7 @@ const gulfStreamItems = [
     href: "/gulf-stream/validators",
     description: "Network validator management and monitoring.",
   },
-]
+];
 
 const turbineItems = [
   {
@@ -85,7 +87,7 @@ const turbineItems = [
     href: "/turbine/root-node",
     description: "Root node configuration and monitoring.",
   },
-]
+];
 
 const blockVerificationItems = [
   {
@@ -123,7 +125,7 @@ const blockVerificationItems = [
     href: "/block-verification/bank-accounts",
     description: "Bank account state management.",
   },
-]
+];
 
 const blockBuildingItems = [
   {
@@ -156,11 +158,11 @@ const blockBuildingItems = [
     href: "/block-building/broadcast",
     description: "Network distribution and propagation of blocks.",
   },
-]
+];
 
 export function Navbar() {
-  const pathname = usePathname()
-  
+  const pathname = usePathname();
+
   return (
     <div className="flex justify-center p-5">
       <NavigationMenu>
@@ -181,17 +183,17 @@ export function Navbar() {
               </Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
-          
+
           {components.map((component) => {
             // Check if current path matches this section or any of its subsections
-            const isActive = pathname === component.href || pathname.startsWith(component.href + '/')
-            
+            const isActive =
+              pathname === component.href ||
+              pathname.startsWith(component.href + "/");
+
             return (
               <NavigationMenuItem key={component.title}>
-                <NavigationMenuTrigger 
-                  className={cn(
-                    isActive && "bg-accent text-accent-foreground"
-                  )}
+                <NavigationMenuTrigger
+                  className={cn(isActive && "bg-accent text-accent-foreground")}
                 >
                   {component.title}
                 </NavigationMenuTrigger>
@@ -201,59 +203,82 @@ export function Navbar() {
                       switch (component.title) {
                         case "Users":
                           return userItems.map((item) => (
-                            <ListItem key={item.title} title={item.title} href={item.href}>
+                            <ListItem
+                              key={item.title}
+                              title={item.title}
+                              href={item.href}
+                            >
                               {item.description}
                             </ListItem>
-                          ))
+                          ));
                         case "Gulf Stream":
                           return gulfStreamItems.map((item) => (
-                            <ListItem key={item.title} title={item.title} href={item.href}>
+                            <ListItem
+                              key={item.title}
+                              title={item.title}
+                              href={item.href}
+                            >
                               {item.description}
                             </ListItem>
-                          ))
+                          ));
                         case "Block Building":
                           return blockBuildingItems.map((item) => (
-                            <ListItem key={item.title} title={item.title} href={item.href}>
+                            <ListItem
+                              key={item.title}
+                              title={item.title}
+                              href={item.href}
+                            >
                               {item.description}
                             </ListItem>
-                          ))
+                          ));
                         case "Turbine":
                           return turbineItems.map((item) => (
-                            <ListItem key={item.title} title={item.title} href={item.href}>
+                            <ListItem
+                              key={item.title}
+                              title={item.title}
+                              href={item.href}
+                            >
                               {item.description}
                             </ListItem>
-                          ))
+                          ));
                         case "Block Verification":
                           return blockVerificationItems.map((item) => (
-                            <ListItem key={item.title} title={item.title} href={item.href}>
+                            <ListItem
+                              key={item.title}
+                              title={item.title}
+                              href={item.href}
+                            >
                               {item.description}
                             </ListItem>
-                          ))
+                          ));
                         default:
                           return (
-                            <ListItem title={component.title} href={component.href}>
+                            <ListItem
+                              title={component.title}
+                              href={component.href}
+                            >
                               {component.description}
                             </ListItem>
-                          )
+                          );
                       }
                     })()}
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-            )
+            );
           })}
         </NavigationMenuList>
       </NavigationMenu>
     </div>
-  )
+  );
 }
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a">
 >(({ className, title, children, ...props }, ref) => {
-  const pathname = usePathname()
-  const isActive = pathname === props.href
+  const pathname = usePathname();
+  const isActive = pathname === props.href;
 
   return (
     <li>
@@ -274,6 +299,6 @@ const ListItem = React.forwardRef<
         </a>
       </NavigationMenuLink>
     </li>
-  )
-})
-ListItem.displayName = "ListItem"
+  );
+});
+ListItem.displayName = "ListItem";

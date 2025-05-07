@@ -1,13 +1,12 @@
-import * as React from "react"
-import Image from "next/image"
+import * as React from "react";
+import Image from "next/image";
 
 import {
   Card,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-
+} from "@/components/ui/card";
 
 interface TwitterCardProps {
   name: string;
@@ -16,20 +15,25 @@ interface TwitterCardProps {
   profileUrl: string;
 }
 
-export function TwitterCard({ name, handle, avatarUrl, profileUrl }: TwitterCardProps) {
+export function TwitterCard({
+  name,
+  handle,
+  avatarUrl,
+  profileUrl,
+}: TwitterCardProps) {
   return (
-    <Card className="w-[350px] transition-all duration-300 hover:shadow-lg hover:border-gray-300">
-      <a 
+    <Card className="w-[350px] transition-all duration-300 hover:border-gray-300 hover:shadow-lg">
+      <a
         href={profileUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="block"
       >
         <CardHeader className="flex flex-row items-center gap-4 space-y-0">
-          <Image 
-            src={avatarUrl} 
+          <Image
+            src={avatarUrl}
             alt={`${name}'s avatar`}
-            className="w-12 h-12 rounded-full"
+            className="h-12 w-12 rounded-full"
             width={48}
             height={48}
           />
@@ -40,5 +44,5 @@ export function TwitterCard({ name, handle, avatarUrl, profileUrl }: TwitterCard
         </CardHeader>
       </a>
     </Card>
-  )
+  );
 }

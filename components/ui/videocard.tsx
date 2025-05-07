@@ -1,13 +1,12 @@
-import * as React from "react"
-import Image from "next/image"
+import * as React from "react";
+import Image from "next/image";
 
 import {
   Card,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-
+} from "@/components/ui/card";
 
 interface VideoCardProps {
   title: string;
@@ -16,28 +15,33 @@ interface VideoCardProps {
   videoUrl: string;
 }
 
-export function VideoCard({ title, description, thumbnailUrl, videoUrl }: VideoCardProps) {
+export function VideoCard({
+  title,
+  description,
+  thumbnailUrl,
+  videoUrl,
+}: VideoCardProps) {
   return (
-    <Card className="w-[350px] transition-all duration-300 hover:shadow-lg hover:border-gray-300">
-      <a 
+    <Card className="w-[350px] transition-all duration-300 hover:border-gray-300 hover:shadow-lg">
+      <a
         href={videoUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="block"
       >
         <div className="relative">
-          <Image 
-            src={thumbnailUrl} 
+          <Image
+            src={thumbnailUrl}
             alt={`${title} thumbnail`}
-            className="w-full h-[200px] object-cover rounded-t-lg"
+            className="h-[200px] w-full rounded-t-lg object-cover"
             width={350}
             height={200}
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-16 h-16 bg-black bg-opacity-50 rounded-full flex items-center justify-center">
-              <svg 
-                className="w-8 h-8 text-white" 
-                fill="currentColor" 
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-black bg-opacity-50">
+              <svg
+                className="h-8 w-8 text-white"
+                fill="currentColor"
                 viewBox="0 0 24 24"
               >
                 <path d="M8 5v14l11-7z" />
@@ -51,5 +55,5 @@ export function VideoCard({ title, description, thumbnailUrl, videoUrl }: VideoC
         </CardHeader>
       </a>
     </Card>
-  )
+  );
 }

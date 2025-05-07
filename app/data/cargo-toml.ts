@@ -574,4 +574,4 @@ crossbeam-epoch = { git = "https://github.com/anza-xyz/crossbeam", rev = "fd279d
 
 solana-curve25519 = { path = "curves/curve25519" }
 solana-zk-sdk = { path = "zk-sdk" }
-`
+`;

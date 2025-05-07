@@ -17,14 +17,15 @@ const eslintConfig = [
       "**/wasm/**",
       "**/wasm/**/*.js",
       "**/wasm/**/*.d.ts",
-      "**/wasm/**/*.wasm"
-    ]
+      "**/wasm/**/*.wasm",
+    ],
   },
   {
     rules: {
       "@typescript-eslint/no-unused-vars": "off",
-    }
-  }
+      "@typescript-eslint/no-require-imports": "off",
+    },
+  },
 ];
 
 export default eslintConfig;
