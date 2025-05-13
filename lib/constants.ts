@@ -1236,3 +1236,154 @@ const accountsDbStageFiles = [
 ];
 
 export { accountsDbStageFiles };
+
+
+
+const pohServicesStageFiles = [
+  {
+    filePath: "core/src/poh_service.rs",
+    role: "Manages the Proof of History service, generating and recording PoH hashes.",
+    functions: [
+      {
+        name: "start_poh_service",
+        description: "Initializes and starts the PoH service thread.",
+        inputs: [
+          { name: "config: PohServiceConfig", description: "Configuration parameters for the PoH service." }
+        ],
+        outputs: ["JoinHandle<()>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn start_poh_service(config: PohServiceConfig) -> JoinHandle<()> {\n    // Initialization logic\n}"
+        }
+      }
+    ]
+  },
+  {
+    filePath: "core/src/poh_recorder.rs",
+    role: "Records PoH hashes and manages the recording of entries.",
+    functions: [
+      {
+        name: "record",
+        description: "Records a new PoH hash entry.",
+        inputs: [
+          { name: "entry: Entry", description: "The entry to be recorded." }
+        ],
+        outputs: ["Result<()>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn record(entry: Entry) -> Result<()> {\n    // Recording logic\n}"
+        }
+      }
+    ]
+  },
+  {
+    filePath: "core/src/entry.rs",
+    role: "Defines the structure of entries used in the PoH mechanism.",
+    functions: [
+      {
+        name: "create_entry",
+        description: "Creates a new entry with the given data.",
+        inputs: [
+          { name: "num_hashes: u64", description: "Number of hashes since the last entry." },
+          { name: "hash: Hash", description: "The PoH hash." },
+          { name: "transactions: Vec<Transaction>", description: "Transactions included in the entry." }
+        ],
+        outputs: ["Entry"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn create_entry(num_hashes: u64, hash: Hash, transactions: Vec<Transaction>) -> Entry {\n    // Entry creation logic\n}"
+        }
+      }
+    ]
+  },
+  {
+    filePath: "core/src/entry_writer.rs",
+    role: "Handles writing entries to the ledger.",
+    functions: [
+      {
+        name: "write_entry",
+        description: "Writes an entry to the ledger.",
+        inputs: [
+          { name: "entry: &Entry", description: "The entry to write." }
+        ],
+        outputs: ["Result<()>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn write_entry(entry: &Entry) -> Result<()> {\n    // Writing logic\n}"
+        }
+      }
+    ]
+  },
+  {
+    filePath: "core/src/entry_reader.rs",
+    role: "Handles reading entries from the ledger.",
+    functions: [
+      {
+        name: "read_entry",
+        description: "Reads an entry from the ledger.",
+        inputs: [
+          { name: "position: u64", description: "Position in the ledger to read from." }
+        ],
+        outputs: ["Result<Entry>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn read_entry(position: u64) -> Result<Entry> {\n    // Reading logic\n}"
+        }
+      }
+    ]
+  },
+  {
+    filePath: "core/src/ledger.rs",
+    role: "Manages the ledger where entries are stored.",
+    functions: [
+      {
+        name: "append_entry",
+        description: "Appends an entry to the ledger.",
+        inputs: [
+          { name: "entry: Entry", description: "The entry to append." }
+        ],
+        outputs: ["Result<()>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn append_entry(entry: Entry) -> Result<()> {\n    // Append logic\n}"
+        }
+      }
+    ]
+  },
+  {
+    filePath: "core/src/poh.rs",
+    role: "Implements the core Proof of History hashing mechanism.",
+    functions: [
+      {
+        name: "hash",
+        description: "Generates a PoH hash.",
+        inputs: [
+          { name: "data: &[u8]", description: "Data to hash." }
+        ],
+        outputs: ["Hash"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn hash(data: &[u8]) -> Hash {\n    // Hashing logic\n}"
+        }
+      }
+    ]
+  },
+  {
+    filePath: "core/src/poh_config.rs",
+    role: "Defines configuration parameters for the PoH service.",
+    functions: [
+      {
+        name: "default_config",
+        description: "Provides default configuration for the PoH service.",
+        inputs: [],
+        outputs: ["PohServiceConfig"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn default_config() -> PohServiceConfig {\n    // Default configuration\n}"
+        }
+      }
+    ]
+  }
+];
+
+export { pohServicesStageFiles };
