@@ -669,4 +669,267 @@ const signatureVerifyFiles = [
 
 export { signatureVerifyFiles };
 
+const bankingStageFiles = [
+  {
+    filePath: "core/src/banking_stage/banking_stage.rs",
+    role: "Implements the core logic of the Banking Stage, processing verified transactions and updating the ledger state.",
+    functions: [
+      {
+        name: "process_transactions",
+        description: "Processes a batch of verified transactions.",
+        inputs: [
+          {
+            name: "transactions: &[SanitizedTransaction]",
+            description: "A slice of sanitized transactions to process.",
+          },
+        ],
+        outputs: ["Result<(), BankingError>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn process_transactions(transactions: &[SanitizedTransaction]) -> Result<(), BankingError> {\n    // Transaction processing logic\n}",
+        },
+      },
+    ],
+  },
+  {
+    filePath: "banks-client/src/lib.rs",
+    role: "Provides client interfaces for interacting with the banking stage, facilitating transaction submission and state queries.",
+    functions: [
+      {
+        name: "submit_transaction",
+        description: "Submits a transaction to the banking stage for processing.",
+        inputs: [
+          {
+            name: "transaction: Transaction",
+            description: "The transaction to be submitted.",
+          },
+        ],
+        outputs: ["Result<Signature, ClientError>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn submit_transaction(transaction: Transaction) -> Result<Signature, ClientError> {\n    // Submission logic\n}",
+        },
+      },
+    ],
+  },
+  {
+    filePath: "banks-interface/src/lib.rs",
+    role: "Defines the interface and traits for the banking components, ensuring modularity and abstraction.",
+    functions: [
+      {
+        name: "TransactionProcessor",
+        description: "Trait defining the interface for processing transactions.",
+        inputs: [],
+        outputs: [],
+        codeSnippet: {
+          language: "rust",
+          code: "trait TransactionProcessor {\n    fn process_transaction(&self, transaction: &Transaction) -> Result<(), ProcessingError>;\n}",
+        },
+      },
+    ],
+  },
+  {
+    filePath: "banks-server/src/lib.rs",
+    role: "Hosts the server-side implementation of the banking stage, managing incoming requests and coordinating processing.",
+    functions: [
+      {
+        name: "handle_client_request",
+        description: "Handles incoming client requests for transaction processing.",
+        inputs: [
+          {
+            name: "request: ClientRequest",
+            description: "The client's request to process.",
+          },
+        ],
+        outputs: ["Result<ServerResponse, ServerError>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn handle_client_request(request: ClientRequest) -> Result<ServerResponse, ServerError> {\n    // Request handling logic\n}",
+        },
+      },
+    ],
+  },
+  {
+    filePath: "builtins/src/lib.rs",
+    role: "Contains built-in programs and utilities used during transaction processing in the banking stage.",
+    functions: [
+      {
+        name: "execute_builtin_program",
+        description: "Executes a built-in program as part of transaction processing.",
+        inputs: [
+          {
+            name: "program_id: &Pubkey",
+            description: "The ID of the built-in program to execute.",
+          },
+          {
+            name: "instruction_data: &[u8]",
+            description: "The instruction data for the program.",
+          },
+        ],
+        outputs: ["Result<(), ProgramError>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn execute_builtin_program(program_id: &Pubkey, instruction_data: &[u8]) -> Result<(), ProgramError> {\n    // Execution logic\n}",
+        },
+      },
+    ],
+  },
+  {
+    filePath: "compute-budget/src/lib.rs",
+    role: "Manages compute budget allocation for transactions, ensuring fair resource distribution.",
+    functions: [
+      {
+        name: "allocate_compute_budget",
+        description: "Allocates compute budget for a transaction.",
+        inputs: [
+          {
+            name: "transaction: &Transaction",
+            description: "The transaction for which to allocate compute budget.",
+          },
+        ],
+        outputs: ["Result<(), BudgetError>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn allocate_compute_budget(transaction: &Transaction) -> Result<(), BudgetError> {\n    // Allocation logic\n}",
+        },
+      },
+    ],
+  },
+  {
+    filePath: "compute-budget-instruction/src/lib.rs",
+    role: "Defines instructions related to compute budget management, allowing transactions to request specific compute resources.",
+    functions: [
+      {
+        name: "create_compute_budget_instruction",
+        description: "Creates an instruction to set compute budget for a transaction.",
+        inputs: [
+          {
+            name: "budget: u64",
+            description: "The compute budget to allocate.",
+          },
+        ],
+        outputs: ["Instruction"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn create_compute_budget_instruction(budget: u64) -> Instruction {\n    // Instruction creation logic\n}",
+        },
+      },
+    ],
+  },
+  {
+    filePath: "program-runtime/src/lib.rs",
+    role: "Provides the runtime environment for executing programs within transactions, handling state transitions and validations.",
+    functions: [
+      {
+        name: "execute_program",
+        description: "Executes a program within the transaction's context.",
+        inputs: [
+          {
+            name: "program_id: &Pubkey",
+            description: "The ID of the program to execute.",
+          },
+          {
+            name: "accounts: &[AccountInfo]",
+            description: "The accounts involved in the execution.",
+          },
+          {
+            name: "instruction_data: &[u8]",
+            description: "The instruction data for the program.",
+          },
+        ],
+        outputs: ["Result<(), ProgramError>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn execute_program(program_id: &Pubkey, accounts: &[AccountInfo], instruction_data: &[u8]) -> Result<(), ProgramError> {\n    // Execution logic\n}",
+        },
+      },
+    ],
+  },
+  {
+    filePath: "runtime/src/lib.rs",
+    role: "Implements the overall runtime logic, coordinating between different stages and managing global state.",
+    functions: [
+      {
+        name: "process_runtime_event",
+        description: "Processes an event within the runtime environment.",
+        inputs: [
+          {
+            name: "event: RuntimeEvent",
+            description: "The event to process.",
+          },
+        ],
+        outputs: ["Result<(), RuntimeError>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn process_runtime_event(event: RuntimeEvent) -> Result<(), RuntimeError> {\n    // Event processing logic\n}",
+        },
+      },
+    ],
+  },
+  {
+    filePath: "fee/src/lib.rs",
+    role: "Calculates and manages transaction fees, ensuring proper fee deduction and distribution.",
+    functions: [
+      {
+        name: "calculate_transaction_fee",
+        description: "Calculates the fee for a given transaction.",
+        inputs: [
+          {
+            name: "transaction: &Transaction",
+            description: "The transaction to calculate the fee for.",
+          },
+        ],
+        outputs: ["u64"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn calculate_transaction_fee(transaction: &Transaction) -> u64 {\n    // Fee calculation logic\n}",
+        },
+      },
+    ],
+  },
+  {
+    filePath: "runtime-transaction/src/lib.rs",
+    role: "Handles transaction-specific runtime operations, including signature verification and instruction processing.",
+    functions: [
+      {
+        name: "verify_transaction_signature",
+        description: "Verifies the signature of a transaction.",
+        inputs: [
+          {
+            name: "transaction: &Transaction",
+            description: "The transaction to verify.",
+          },
+        ],
+        outputs: ["Result<(), SignatureError>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn verify_transaction_signature(transaction: &Transaction) -> Result<(), SignatureError> {\n    // Verification logic\n}",
+        },
+      },
+    ],
+  },
+  {
+    filePath: "cost-model/src/lib.rs",
+    role: "Analyzes and models the cost of transactions, aiding in fee calculation and resource allocation.",
+    functions: [
+      {
+        name: "estimate_transaction_cost",
+        description: "Estimates the cost of a transaction based on its contents.",
+        inputs: [
+          {
+            name: "transaction: &Transaction",
+            description: "The transaction to estimate the cost for.",
+          },
+        ],
+        outputs: ["u64"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn estimate_transaction_cost(transaction: &Transaction) -> u64 {\n    // Cost estimation logic\n}",
+        },
+      },
+    ],
+  },
+];
+
+export { bankingStageFiles };
  
