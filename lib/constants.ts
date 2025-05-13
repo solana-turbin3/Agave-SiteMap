@@ -1,3 +1,5 @@
+import exp from "node:constants";
+
 const fetchStageFiles = [
   {
     filePath: "core/src/tpu_entry_notifier.rs",
@@ -932,4 +934,305 @@ const bankingStageFiles = [
 ];
 
 export { bankingStageFiles };
- 
+
+
+const broadcastStageFiles = [
+  {
+    filePath: "core/src/broadcast_stage/broadcast_stage.rs",
+    role: "Implements the broadcast stage responsible for distributing processed entries to peers or validators.",
+    functions: [
+      {
+        name: "run_broadcast_stage",
+        description: "Initializes and runs the main broadcast loop.",
+        inputs: [
+          { name: "receiver: Receiver<Entry>", description: "Receives entries to be broadcasted." },
+        ],
+        outputs: ["()"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn run_broadcast_stage(receiver: Receiver<Entry>) {\n    // Start broadcast loop\n}",
+        },
+      },
+    ],
+  },
+  {
+    filePath: "core/src/broadcast_stage/standard_broadcast_run.rs",
+    role: "Provides the standard broadcast implementation used by default in the broadcast stage.",
+    functions: [
+      {
+        name: "standard_broadcast",
+        description: "Performs standard broadcasting logic to all peer validators.",
+        inputs: [
+          { name: "entry: &Entry", description: "A reference to the ledger entry to broadcast." },
+        ],
+        outputs: ["Result<(), BroadcastError>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn standard_broadcast(entry: &Entry) -> Result<(), BroadcastError> {\n    // Broadcasting logic\n}",
+        },
+      },
+    ],
+  },
+  {
+    filePath: "core/src/broadcast_stage/cluster_nodes.rs",
+    role: "Manages the set of known cluster nodes and determines which peers to broadcast to.",
+    functions: [
+      {
+        name: "get_broadcast_peers",
+        description: "Returns a list of peers to broadcast a given entry to.",
+        inputs: [
+          { name: "entry: &Entry", description: "The entry being processed." },
+        ],
+        outputs: ["Vec<Pubkey>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn get_broadcast_peers(entry: &Entry) -> Vec<Pubkey> {\n    // Peer selection logic\n}",
+        },
+      },
+    ],
+  },
+  {
+    filePath: "core/src/broadcast_stage/duplicate_detector.rs",
+    role: "Detects and avoids re-broadcasting duplicate entries.",
+    functions: [
+      {
+        name: "is_duplicate",
+        description: "Checks if the entry has already been broadcasted.",
+        inputs: [
+          { name: "entry_hash: &Hash", description: "The hash of the entry to check." },
+        ],
+        outputs: ["bool"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn is_duplicate(entry_hash: &Hash) -> bool {\n    // Duplicate detection logic\n}",
+        },
+      },
+    ],
+  },
+  {
+    filePath: "runtime/src/broadcast_utils.rs",
+    role: "Contains broadcast utility functions for hashing, logging, and data transformation.",
+    functions: [
+      {
+        name: "hash_entry_for_broadcast",
+        description: "Hashes an entry for tracking and broadcast integrity.",
+        inputs: [
+          { name: "entry: &Entry", description: "The entry to hash." },
+        ],
+        outputs: ["Hash"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn hash_entry_for_broadcast(entry: &Entry) -> Hash {\n    // Entry hashing logic\n}",
+        },
+      },
+    ],
+  },
+  {
+    filePath: "poh/src/poh_recorder.rs",
+    role: "Integrates PoH with broadcast timing, ensuring proper sequencing of broadcasted entries.",
+    functions: [
+      {
+        name: "record_broadcast_slot",
+        description: "Records the slot number when broadcasting entries.",
+        inputs: [
+          { name: "slot: Slot", description: "The slot to record for broadcast." },
+        ],
+        outputs: ["Result<(), PoHError>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn record_broadcast_slot(slot: Slot) -> Result<(), PoHError> {\n    // Slot recording logic\n}",
+        },
+      },
+    ],
+  },
+  {
+    filePath: "network/src/tpu_connection.rs",
+    role: "Handles network connections to other TPU nodes during broadcast.",
+    functions: [
+      {
+        name: "send_entry_to_peer",
+        description: "Sends a ledger entry to a specific peer node.",
+        inputs: [
+          { name: "entry: &Entry", description: "The entry to send." },
+          { name: "peer: &Pubkey", description: "The peer to send the entry to." },
+        ],
+        outputs: ["Result<(), NetworkError>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn send_entry_to_peer(entry: &Entry, peer: &Pubkey) -> Result<(), NetworkError> {\n    // Send logic\n}",
+        },
+      },
+    ],
+  },
+  {
+    filePath: "core/src/broadcast_stage/metrics.rs",
+    role: "Captures metrics for broadcast performance and diagnostics.",
+    functions: [
+      {
+        name: "record_broadcast_metrics",
+        description: "Records metrics about a broadcasted entry.",
+        inputs: [
+          { name: "entry: &Entry", description: "The broadcasted entry." },
+          { name: "peers: usize", description: "Number of peers the entry was sent to." },
+        ],
+        outputs: ["()"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn record_broadcast_metrics(entry: &Entry, peers: usize) {\n    // Metrics logic\n}",
+        },
+      },
+    ],
+  },
+];
+
+export { broadcastStageFiles };
+
+
+// accountsDbStageFiles.ts
+
+
+const accountsDbStageFiles = [
+  {
+    filePath: "runtime/src/accounts_db.rs",
+    role: "Implements the core logic for storing and retrieving account state, handling persistence, caching, and storage structures.",
+    functions: [
+      {
+        name: "store_account",
+        description: "Stores an account's data in the Accounts DB.",
+        inputs: [
+          { name: "pubkey: &Pubkey", description: "The public key of the account." },
+          { name: "account: &Account", description: "The account data to store." },
+        ],
+        outputs: ["Result<(), AccountsDbError>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn store_account(pubkey: &Pubkey, account: &Account) -> Result<(), AccountsDbError> {\n    // Store logic\n}"
+        },
+      },
+    ],
+  },
+  {
+    filePath: "runtime/src/accounts_cache.rs",
+    role: "Manages the in-memory cache for faster account retrieval before hitting persistent storage.",
+    functions: [
+      {
+        name: "load_cached_account",
+        description: "Attempts to load an account from the in-memory cache.",
+        inputs: [
+          { name: "pubkey: &Pubkey", description: "The public key of the account." },
+        ],
+        outputs: ["Option<Account>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn load_cached_account(pubkey: &Pubkey) -> Option<Account> {\n    // Cache lookup\n}"
+        },
+      },
+    ],
+  },
+  {
+    filePath: "runtime/src/accounts_index.rs",
+    role: "Maintains an index for account locations in storage or cache, mapping keys to storage entries.",
+    functions: [
+      {
+        name: "get_account_location",
+        description: "Gets the location metadata of an account in storage.",
+        inputs: [
+          { name: "pubkey: &Pubkey", description: "The public key of the account." },
+        ],
+        outputs: ["Option<AccountLocation>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn get_account_location(pubkey: &Pubkey) -> Option<AccountLocation> {\n    // Index lookup\n}"
+        },
+      },
+    ],
+  },
+  {
+    filePath: "runtime/src/accounts_background_service.rs",
+    role: "Runs background tasks like cleaning, flushing, and purging old account data.",
+    functions: [
+      {
+        name: "clean_accounts_background",
+        description: "Cleans stale or outdated account entries in the background.",
+        inputs: [],
+        outputs: ["()"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn clean_accounts_background() {\n    // Cleaning logic\n}"
+        },
+      },
+    ],
+  },
+  {
+    filePath: "runtime/src/accounts_db_storage.rs",
+    role: "Handles low-level file-backed storage of account data, including appending and reading.",
+    functions: [
+      {
+        name: "append_account_to_storage",
+        description: "Appends an account to persistent storage files.",
+        inputs: [
+          { name: "account: &Account", description: "The account data to store." },
+        ],
+        outputs: ["Result<StorageOffset, StorageError>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn append_account_to_storage(account: &Account) -> Result<StorageOffset, StorageError> {\n    // Append logic\n}"
+        },
+      },
+    ],
+  },
+  {
+    filePath: "runtime/src/accounts_db_scan.rs",
+    role: "Implements scanning and filtering over accounts for rent collection, snapshots, and pruning.",
+    functions: [
+      {
+        name: "scan_accounts",
+        description: "Scans all accounts and applies a filter operation.",
+        inputs: [
+          { name: "filter: F", description: "A closure that determines if an account matches." },
+        ],
+        outputs: ["Vec<Pubkey>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn scan_accounts<F>(filter: F) -> Vec<Pubkey>\nwhere\n    F: Fn(&Account) -> bool,\n{\n    // Scanning logic\n}"
+        },
+      },
+    ],
+  },
+  {
+    filePath: "runtime/src/accounts_db_rewrites.rs",
+    role: "Handles rewriting or consolidating account storage entries during compaction or snapshots.",
+    functions: [
+      {
+        name: "rewrite_accounts_storage",
+        description: "Rewrites the account storage file to optimize layout and size.",
+        inputs: [],
+        outputs: ["Result<(), RewriteError>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn rewrite_accounts_storage() -> Result<(), RewriteError> {\n    // Rewrite logic\n}"
+        },
+      },
+    ],
+  },
+  {
+    filePath: "runtime/src/accounts_partition.rs",
+    role: "Provides utilities to partition account data for parallel access or storage.",
+    functions: [
+      {
+        name: "partition_accounts",
+        description: "Splits account sets for parallel operations.",
+        inputs: [
+          { name: "accounts: Vec<Account>", description: "The set of accounts to partition." },
+        ],
+        outputs: ["Vec<Vec<Account>>"],
+        codeSnippet: {
+          language: "rust",
+          code: "fn partition_accounts(accounts: Vec<Account>) -> Vec<Vec<Account>> {\n    // Partition logic\n}"
+        },
+      },
+    ],
+  },
+];
+
+export { accountsDbStageFiles };
