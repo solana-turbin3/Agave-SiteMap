@@ -1,4 +1,7 @@
-# What if you could understand the Agave code 10x faster—unlocking rapid mastery of Solana’s architecture and code in record time?
+
+# AGAVE MAP
+
+## What if you could understand the Agave code 10x faster—unlocking rapid mastery of Solana’s architecture and code in record time?
 
 We all know what it’s like to open a repository for the first time: hundreds of folders listed in alphabetical order. 
 
@@ -6,7 +9,7 @@ You just want to dive into the part you’re interested in, but first, you have 
 
 Imagine a tool that eliminates the need to sift through endless code. 
 
-#With the Interactive AVAGA Map, you can:
+### With the AGAVE Map, you can:
 
 Understand every section of the Agave Client in the context of Solana’s architecture. With Modular Insights: built on top of solanahowitworks 
 
