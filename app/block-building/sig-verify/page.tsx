@@ -53,9 +53,13 @@ export default function SignatureVerificationStagePage() {
       <div className="bg-background-hero">
         <div className="container mx-auto flex flex-col items-center justify-center gap-12 p-12">
           <div className="flex flex-col items-center justify-center">
-            <h1 className="mb-6 text-4xl font-bold text-white">Signature Verification Stage</h1>
+            <h1 className="mb-6 text-4xl font-bold text-white">
+              Signature Verification Stage
+            </h1>
             <p className="mb-4 text-lg text-white">
-              The Signature Verification Stage validates incoming transaction signatures using parallel compute, leveraging both CPU and GPU acceleration.
+              The Signature Verification Stage validates incoming transaction
+              signatures using parallel compute, leveraging both CPU and GPU
+              acceleration.
             </p>
             <Checkout
               steps={signatureVerifySteps}
@@ -100,7 +104,7 @@ export default function SignatureVerificationStagePage() {
               <VideoCard
                 title="Signature Verification in Solana TPU"
                 description="A deep dive into how Solana verifies transaction signatures using parallel compute and optimized pipelines."
-                thumbnailUrl="/sigverify_stage.jpg"
+                thumbnailUrl="/Solana_Title.jpg"
                 videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
               />
               <TwitterCard
@@ -110,22 +114,6 @@ export default function SignatureVerificationStagePage() {
                 profileUrl="https://twitter.com/aeyakovenko"
               />
             </div>
-
-            <div className="mt-16">
-  <h2 className="mb-4 text-2xl font-bold">Relevant Packages by File Path</h2>
-  <ul className="list-disc pl-4">
-    <li><strong>core</strong> → <code>solana-core</code></li>
-    <li><strong>banks-client</strong> → <code>solana-banks-client</code></li>
-    <li><strong>banks-interface</strong> → <code>solana-banks-interface</code></li>
-    <li><strong>banks-server</strong> → <code>solana-banks-server</code></li>
-    <li><strong>builtins</strong> → <code>solana-builtins</code></li>
-    <li><strong>compute-budget</strong> → <code>solana-compute-budget</code></li>
-    <li><strong>program-runtime</strong> → <code>solana-program-runtime</code></li>
-    <li><strong>runtime</strong> → <code>solana-runtime</code></li>
-    <li><strong>merkle-tree</strong> → <code>solana-merkle-tree</code></li>
-  </ul>
-</div>
-
           </div>
         </div>
       </div>

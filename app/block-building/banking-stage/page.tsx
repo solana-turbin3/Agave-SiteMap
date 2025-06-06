@@ -104,57 +104,6 @@ export default function BankingStagePage() {
                 <FileDocumentation key={file.filePath} {...file} />
               ))}
             </div>
-
-            {/* <div className="mt-16">
-              <h2 className="mb-4 text-2xl font-bold">
-                Relevant Packages by File Path
-              </h2>
-              <ul className="list-disc pl-4">
-                <li>
-                  <strong>core</strong> → <code>solana-core</code>
-                </li>
-                <li>
-                  <strong>banks-client</strong> →{" "}
-                  <code>solana-banks-client</code>
-                </li>
-                <li>
-                  <strong>banks-interface</strong> →{" "}
-                  <code>solana-banks-interface</code>
-                </li>
-                <li>
-                  <strong>banks-server</strong> →{" "}
-                  <code>solana-banks-server</code>
-                </li>
-                <li>
-                  <strong>builtins</strong> → <code>solana-builtins</code>
-                </li>
-                <li>
-                  <strong>compute-budget</strong> →{" "}
-                  <code>solana-compute-budget</code>
-                </li>
-                <li>
-                  <strong>compute-budget-instruction</strong> →{" "}
-                  <code>solana-compute-budget-instruction</code>
-                </li>
-                <li>
-                  <strong>program-runtime</strong> →{" "}
-                  <code>solana-program-runtime</code>
-                </li>
-                <li>
-                  <strong>runtime</strong> → <code>solana-runtime</code>
-                </li>
-                <li>
-                  <strong>runtime-transaction</strong> →{" "}
-                  <code>solana-runtime-transaction</code>
-                </li>
-                <li>
-                  <strong>fee</strong> → <code>solana-fee</code>
-                </li>
-                <li>
-                  <strong>cost-model</strong> → <code>solana-cost-model</code>
-                </li>
-              </ul>
-            </div> */}
           </div>
 
           <div className="col-span-3">
