@@ -105,7 +105,7 @@ export default function BankingStagePage() {
               ))}
             </div>
 
-            <div className="mt-16">
+            {/* <div className="mt-16">
               <h2 className="mb-4 text-2xl font-bold">
                 Relevant Packages by File Path
               </h2>
@@ -154,7 +154,7 @@ export default function BankingStagePage() {
                   <strong>cost-model</strong> → <code>solana-cost-model</code>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
 
           <div className="col-span-3">

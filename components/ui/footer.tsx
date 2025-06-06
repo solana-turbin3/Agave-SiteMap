@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between md:flex-row">
           <div className="mb-4 md:mb-0">
-            <p className="text-gray-600">Built by Humans. For Turbin3</p>
+            <p className="text-gray-600">Built for Solana Developers</p>
           </div>
 
           <nav className="flex space-x-6">
