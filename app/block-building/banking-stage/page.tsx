@@ -56,7 +56,7 @@ export default function BankingStagePage() {
         <div className="container mx-auto flex flex-col items-center justify-center gap-12 p-12">
           <div className="flex flex-col items-center justify-center">
             <h1 className="mb-6 text-4xl font-bold text-white">
-              Banking Stage
+             BlockBuilding - Banking Stage
             </h1>
             <p className="mb-4 text-lg text-white">
               The Banking Stage is responsible for executing transactions after
@@ -67,61 +67,35 @@ export default function BankingStagePage() {
               steps={bankingStageSteps}
               title="Clone Banking Stage to your repo"
             />
-          </div>
+          </div>        
+          <BlockBuildingMap />
 
+          <h2 className="text-3xl font-bold text-white">
+          Banking Stage
+          </h2>
+          <p className="text-lg text-white">
+              The Banking Stage is super complicated and this is the actual process behind this.
+          </p>
           <div className="flex justify-center">
             <BankingMap
               dialogData={bankingStageDialogData}
               className="h-[700px]"
             />
           </div>
+
+       
+
         </div>
       </div>
 
       <div className="container mx-auto max-w-7xl p-8">
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-9">
-            <div>
-              <h2 className="mb-4 text-2xl font-bold">
-                Relevant Agave File Paths
-              </h2>
-              <ul className="list-disc pl-4">
-                {bankingStageFiles.map((file) => (
-                  <li key={file.filePath}>
-                    <a
-                      href={`#${file.filePath.replace(/\//g, "-")}`}
-                      className="text-blue-600 hover:underline"
-                    >
-                      {file.filePath}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="mt-8 space-y-8">
-              {bankingStageFiles.map((file) => (
-                <FileDocumentation key={file.filePath} {...file} />
-              ))}
-            </div>
+            
+            
           </div>
 
-          <div className="col-span-3">
-            <div className="flex flex-col gap-4">
-              <VideoCard
-                title="Banking Stage Deep Dive"
-                description="Learn how Solana's Banking Stage processes verified transactions and commits state transitions."
-                thumbnailUrl="/Solana_Title.jpg"
-                videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-              />
-              <TwitterCard
-                name="Anatoly Yakovenko"
-                handle="aeyakovenko"
-                avatarUrl="/twitter.jpg"
-                profileUrl="https://twitter.com/aeyakovenko"
-              />
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>

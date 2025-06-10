@@ -114,7 +114,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
         <path
           d="M44.6907 951.04L3.31628 920.96C0.61096 918.5 2.35084 914 6.00697 914H210.063C210.992 914 211.892 914.323 212.608 914.914L258.545 950.914C260.485 952.514 260.485 955.486 258.545 957.086L212.608 993.086C211.892 993.677 210.992 994 210.063 994H6.00697C2.35084 994 0.610963 989.5 3.31628 987.04L44.6907 956.96C46.4364 955.373 46.4364 952.627 44.6907 951.04Z"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
         />
         <path
@@ -128,7 +128,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           height="104"
           rx="20"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
           id="packet-receiver"
           className="hoverable-rect"
@@ -145,7 +145,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           height="104"
           rx="20"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
           id="decision-maker"
           className="hoverable-rect"
@@ -162,7 +162,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           height="140"
           rx="20"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
           id="bank"
           className="hoverable-rect"
@@ -179,7 +179,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           height="140"
           rx="20"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
           id="committer"
           className="hoverable-rect"
@@ -196,7 +196,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           height="104"
           rx="16"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
           id="decision-maker"
           className="hoverable-rect"
@@ -213,7 +213,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           height="104"
           rx="16"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
           id="decision-maker"
           className="hoverable-rect"
@@ -230,7 +230,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           height="104"
           rx="16"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
           id="swqos-service"
           className="hoverable-rect"
@@ -247,7 +247,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           height="104"
           rx="20"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
           id="block-store"
           className="hoverable-rect"
@@ -263,7 +263,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           height="104"
           rx="20"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
           id="poh-recorder"
           className="hoverable-rect"
@@ -295,7 +295,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           height="592"
           rx="16"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
         />
         <path
@@ -313,7 +313,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
         <path
           d="M1130 530C1130 521.163 1137.16 514 1146 514H1216V1394H1146C1137.16 1394 1130 1386.84 1130 1378V530Z"
           stroke="#898989"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
         />
         <rect
@@ -323,7 +323,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           height="133.043"
           rx="16"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
         />
         <path
@@ -354,7 +354,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           rx="16"
           fill="#D3187A"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
         />
         <path
@@ -368,7 +368,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           height="23.0978"
           rx="11.5489"
           stroke="#FFC2EC"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
         />
         <rect
@@ -378,7 +378,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           height="23.0978"
           rx="11.5489"
           stroke="#FFC2EC"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
         />
         <path
@@ -391,7 +391,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           width="224"
           height="880"
           stroke="#D28F70"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
         />
         <rect
@@ -401,7 +401,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           height="96"
           fill="#D28F70"
           stroke="#D28F70"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
         />
         <path
@@ -415,7 +415,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           height="96"
           fill="#198CC4"
           stroke="#198CC4"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
         />
         <path
@@ -426,7 +426,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           d="M1665 514H1873C1881.84 514 1889 521.163 1889 530V610H1665V514Z"
           fill="#43BA43"
           stroke="#43BA43"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
         />
         <path
@@ -440,19 +440,19 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           height="880"
           rx="6"
           stroke="#198CC4"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
         />
         <path
           d="M1664 514H1873C1881.84 514 1889 521.163 1889 530V1378C1889 1386.84 1881.84 1394 1873 1394H1664V514Z"
           stroke="#43BA43"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
         />
         <path
           d="M1053.5 954H1124.5"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
           strokeLinejoin="bevel"
         />
@@ -463,7 +463,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           height="176"
           rx="16"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
           id="vote-storage"
           className="hoverable-rect"
@@ -484,7 +484,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           height="176"
           rx="16"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
           id="vote-worker"
           className="hoverable-rect"
@@ -502,7 +502,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           rx="16"
           fill="black"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
           id="consumer-worker"
           className="hoverable-rect"
@@ -520,7 +520,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           rx="16"
           fill="black"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
           id="consumer-worker"
           className="hoverable-rect"
@@ -537,7 +537,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
         <path
           d="M899 335.5V896.5"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
           strokeLinejoin="bevel"
           strokeDasharray="16 10"
@@ -549,7 +549,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           height="1104"
           rx="16"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
         />
         <path
@@ -574,7 +574,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           x2="2371.37"
           y2="1401.32"
           stroke="white"
-          strokeWidth="3"
+          strokeWidth="5"
         />
         <line
           x1="2254.87"
@@ -582,7 +582,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           x2="2254.87"
           y2="1342.82"
           stroke="white"
-          strokeWidth="3"
+          strokeWidth="5"
         />
         <ellipse
           cx="2255.68"
@@ -590,7 +590,7 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
           rx="115.685"
           ry="60.5967"
           stroke="#F5428F"
-          strokeWidth="3"
+          strokeWidth="5"
           strokeLinecap="round"
         />
       </svg>
