@@ -673,9 +673,11 @@ export function BankingMap({ className = "", dialogData }: BankingProps) {
                     </ol>
                   ),
                   li: ({ children }) => (
-                    <li className="leading-relaxed text-gray-700 dark:text-gray-300">
-                      {children}
-                    </li>
+                    <ul>
+                      <li className="leading-relaxed text-gray-700 dark:text-gray-300">
+                        {children}
+                      </li>
+                    </ul>
                   ),
                 }}
               >
